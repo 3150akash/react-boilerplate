@@ -7,15 +7,14 @@ import { RootState, AppDispatch } from "../redux/store";
 import { getPost } from "./actions";
 import { dynamicInjectionFetchUserEpic } from "./epics";
 import { Post } from "./interfaces";
-import { dynamicInjectionReducer } from "./reducer";
+import { dynamicInjectionReducer, DynamicInjectionState } from "./reducer";
 
 export const DynamicInjection = () => {
-    // type DynamicInjectionPostType  = ReturnType<typeof dynamicInjectionReducer>
     useInjectEpic(dynamicInjectionFetchUserEpic);
     useInjectReducer("dynamicInjectionReducer", dynamicInjectionReducer);
     const dispatch = useDispatch<AppDispatch>() 
-    const posts: Post[] = useSelector((store:RootState) => store.dynamicInjectionReducer.posts )
-    
+    const posts: Post[] = useSelector((store:DynamicInjectionState) => store.dynamicInjectionReducer.posts )
+    // 
     useEffect(() => {
         dispatch(getPost());
     }, [])

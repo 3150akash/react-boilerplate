@@ -42,3 +42,6 @@ export const dynamicInjectionReducer = (state = initialState, action:PayloadActi
           return state
       }
     }
+
+    type dynamicInjectionType  = ReturnType<typeof dynamicInjectionReducer>
+    export type DynamicInjectionState = {dynamicInjectionReducer : dynamicInjectionType}
