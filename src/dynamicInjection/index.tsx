@@ -11,7 +11,7 @@ import { dynamicInjectionReducer, DynamicInjectionState } from "./reducer";
 
 export const DynamicInjection = () => {
     useInjectEpic(dynamicInjectionFetchUserEpic);
-    useInjectReducer("dynamicInjectionReducer", dynamicInjectionReducer);
+    useInjectReducer(`${dynamicInjectionReducer.name}`, dynamicInjectionReducer);
     const dispatch = useDispatch<AppDispatch>() 
     const posts: Post[] = useSelector((store:DynamicInjectionState) => store.dynamicInjectionReducer.posts )
     // 
