@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BasicExample } from './basicExample';
+import { DynamicInjection } from './dynamicInjection';
+// import { BasicExample } from './basicExample';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <BasicExample/> 
+        <DynamicInjection/> 
         <a
           className="App-link"
           href="https://reactjs.org"

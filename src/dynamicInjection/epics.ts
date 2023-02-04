@@ -8,12 +8,12 @@ import { GET_POST } from './constant';
 import { Post } from './interfaces';
 
 // epic
-export const fetchUserEpic: Epic = (action$:Observable<Action<any>>) => action$.pipe(
+export const dynamicInjectionFetchUserEpic: Epic = (action$:Observable<Action<any>>) => action$.pipe(
   ofType(GET_POST),
   mergeMap(action =>
-    (ajax.getJSON(`https://jsonplaceholder.typicode.com/posts1`) as Observable<Post[]>).pipe(
+    (ajax.getJSON(`https://jsonplaceholder.typicode.com/posts`) as Observable<Post[]>).pipe(
         map((response: Post[]) => getPostSuccess(response)), 
-        catchError(error => of(globalErrorHandler("fetchUserEpic", "https://jsonplaceholder.typicode.com/posts1", error))
+        catchError(error => of(globalErrorHandler("fetchUserEpic", "https://jsonplaceholder.typicode.com/posts", error))
     )
   ))
 );
