@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit"
-import { type } from "os"
+import Axios from "axios-observable";
 
 export interface EpicError {
     sourceEpic: string,
@@ -14,3 +14,7 @@ export interface GlobalInitialState {
 export type GenericReducer = (state: any, action: PayloadAction<any>) => any;
 
 export type ReducerDictionary = {[key: string]:GenericReducer}
+
+export interface EpicDependency{
+    axiosInstance: Axios;
+}

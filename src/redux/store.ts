@@ -3,8 +3,11 @@ import {createEpicMiddleware} from 'redux-observable'
 import {  Dispatch } from 'redux'
 import { rootEpic } from "./rootEpic";
 import { rootReducer } from "./rootReducer";
+import {axiosInstance} from "../axios/axios.config";
 
-const epicMiddleware = createEpicMiddleware();
+const epicMiddleware = createEpicMiddleware(
+    {dependencies: { axiosInstance }}
+);
 
 const store = configureStore({
     reducer : rootReducer,
